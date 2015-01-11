@@ -51,9 +51,8 @@ if($_GET['section'] != null) {
             }).success(function(data) {
 
                 if(data.result == 0) {
-                    var href = window.location.href;
                     history.pushState({url:data.url}, data.title, data.url);
-                    if(urlHash != null && href == data.url + urlHash) {
+                    if(urlParts.length == 2) {
                         window.location.hash = urlHash;
                     }
                     document.title = data.title;
@@ -117,7 +116,7 @@ if($_GET['section'] != null) {
             }, 700);
             setTimeout(function() {
                 loading = false;
-                load_page('<?=$url;?>' + window.location.hash);
+                load_page(window.location.href);
             }, 1200);
         });
         body.on('click', 'a.load-page', function(e) {

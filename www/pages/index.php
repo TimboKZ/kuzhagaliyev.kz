@@ -3,12 +3,11 @@
     <script>
         var hash = window.location.hash;
         if(hash != null) {
-            hash = hash.substr(1);
-            currentCategory = $('div[data-slug="' + hash + '"]');
+            slug = hash.substr(1);
+            currentCategory = $('div[data-slug="' + slug + '"]');
             currentCategory.addClass('expanding');
             currentCategory.removeClass('clickable');
             category = true;
-            document.location.hash = currentCategory.data('slug');
             setTimeout(function() {
                 currentCategory.removeClass('expanding');
                 currentCategory.addClass('expanded');

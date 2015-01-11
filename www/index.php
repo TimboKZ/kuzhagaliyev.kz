@@ -1,5 +1,12 @@
 <?php
 include_once 'includes/php/settings.php';
+$url = $GLOBALS['base_url'];
+if($_GET['page'] != null) {
+    $url .= $_GET['page'].'/';
+}
+if($_GET['section'] != null) {
+    $url .= $_GET['section'].'/';
+}
 ?>
 
 <html lang="en">
@@ -29,7 +36,9 @@ include_once 'includes/php/settings.php';
             loading = true;
             var currentPage = $(".current-page");
             var loadingPage = $(".loading-page");
-            $.ajax('<?=$GLOBALS['base_url'];?>' + url, {
+            $.ajax('<?=$GLOBALS['base_url'];?>pageparser.php', {
+                data: { url: url },
+                dataType: 'json',
                 beforeSend: function() {
                     currentPage.addClass('zoomOutCurrent');
                     currentPage.prepend('<div id="loading-indicator"><div id="loading-indicator-inside"><div id="loading-indicator-box"></div></div></div>');
@@ -38,18 +47,34 @@ include_once 'includes/php/settings.php';
                     }, 100);
                 }
             }).success(function(data) {
-                loadingPage.html(data);
-                setTimeout(function() {
-                    currentPage.removeClass('zoomOutCurrent').addClass('flipOut');
-                    loadingPage.removeClass('hidden');
+
+                if(data.result == 0) {
+                    //var urlHash = document.location.hash;
+                    history.pushState({url:url}, data.title, data.url);
+                    document.title = data.title;
+
+                    loadingPage.html(data.html);
                     setTimeout(function() {
-                        loadingPage.removeClass('zoomOutLoading').addClass('flipIn');
-                        currentPage.removeClass('flipOut').removeClass('current-page').addClass('loading-page').addClass('hidden');
+                        currentPage.removeClass('zoomOutCurrent').addClass('flipOut');
+                        loadingPage.removeClass('hidden');
                         setTimeout(function() {
-                            loadingPage.removeClass('flipIn').removeClass('loading-page').addClass('current-page');
+                            loadingPage.removeClass('zoomOutLoading').addClass('flipIn');
+                            currentPage.removeClass('flipOut').removeClass('current-page').addClass('loading-page').addClass('hidden');
+                            setTimeout(function() {
+                                loadingPage.removeClass('flipIn').removeClass('loading-page').addClass('current-page');
+                            }, 500);
                         }, 500);
                     }, 500);
-                }, 500);
+
+                } else {
+                    if(data.result == 400) show_dialog('error', 'Error <span>#' +  data.result + '</span>', 'The URL requested by the client does not match the standard pattern.');
+                    else if(data.result == 404) show_dialog('warning', 'Error <span>#' +  data.result + '</span>', 'Requested page does not exist on the server.');
+                    else show_dialog('error', 'Error <span>#' +  data.result + '</span>', 'An error occurred while loading the requested page.');
+                    setTimeout(function() {
+                        currentPage.removeClass('zoomOutCurrent');
+                    }, 1000);
+                }
+
             }).error(function() {
                 show_dialog('error', 'Error', 'An error occurred while loading the requested page.');
                 setTimeout(function() {
@@ -57,13 +82,16 @@ include_once 'includes/php/settings.php';
                 }, 1000);
             }).always(function() {
                 setTimeout(function() {
-                    $('#loading-indicator').remove();
-                }, 1000);
+                    $('#loading-indicator').removeClass('loaded');
+                    setTimeout(function() {
+                        $('#loading-indicator').remove();
+                    }, 500);
+                }, 500);
             });
             loading = false;
         }
     </script>
-    <title></title>
+    <title>kuzhagaliyev.kz</title>
 
 </head>
 
@@ -83,12 +111,12 @@ include_once 'includes/php/settings.php';
             }, 700);
             setTimeout(function() {
                 loading = false;
-                load_page('pages/index.php');
+                load_page('<?=$url;?>');
             }, 1200);
         });
         body.on('click', 'a.load-page', function(e) {
             e.preventDefault();
-            load_page($(this).data('url'));
+            load_page($(this).attr('href'));
         });
         body.on('click', '#dialog', function(e) {
             $('#dialog').removeClass('loaded');

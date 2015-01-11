@@ -27,11 +27,11 @@ include '../includes/php/settings.php';
                 foreach($items as $item) {
                     $thumbnail = '';
                     if(file_exists($item['slug'].'/thumbnail.png')){
-                        $thumbnail = ' style="background-image:url(\''.$GLOBALS['base_url'].'pages/'.$item['slug'].'/thumbnail.png\')"';
+                        $thumbnail = ' style="background-image:url(\''.$GLOBALS['base_url'].$GLOBALS['pages_base'].$item['slug'].'/thumbnail.png\')"';
                     }
                     ?>
                  --><div class="index-category-items-box">
-                        <a href="<?=$GLOBALS['base_url']?><?=$item['slug'];?>/" class="load-page" data-url="pages/<?=$item['slug'];?>/"<?=$thumbnail;?>><span><?=$item['name'];?></span></a>
+                        <a href="<?=$GLOBALS['base_url']?><?=$item['slug'];?>/" class="load-page"<?=$thumbnail;?>><span><?=$item['name'];?></span></a>
                     </div><!--
                 <?
                 }

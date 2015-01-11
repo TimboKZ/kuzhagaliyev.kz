@@ -1,6 +1,7 @@
 <?php
 
 $GLOBALS['base_url'] = 'http://kuzhagaliyev.kz/';
+$GLOBALS['pages_base'] = 'pages/';
 
 $GLOBALS['mysql_user'] = 'root';
 $GLOBALS['mysql_password'] = '';

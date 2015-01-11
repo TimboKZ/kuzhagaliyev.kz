@@ -1,3 +1,4 @@
 RewriteEngine On
 
+RewriteRule ^([a-zA-Z0-9_\-]+)/([a-zA-Z0-9_\-]+)/$ index.php?page=$1&section=$2
 RewriteRule ^([a-zA-Z0-9_\-]+)/$ index.php?page=$1

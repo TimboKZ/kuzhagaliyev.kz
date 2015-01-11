@@ -1,0 +1,62 @@
+@import "variables";
+
+// Fonts & Icons
+@fonts-url:'../fonts/';
+
+@quicksand-url:'@{fonts-url}quicksand/';
+
+@font-face {
+  font-family:'Quicksand Regular';
+  src:url('@{quicksand-url}quicksand-regular-webfont.eot');
+  src:url('@{quicksand-url}quicksand-regular-webfont.eot?#iefix') format('embedded-opentype'),
+      url('@{quicksand-url}quicksand-regular-webfont.woff2') format('woff2'),
+      url('@{quicksand-url}quicksand-regular-webfont.woff') format('woff'),
+      url('@{quicksand-url}quicksand-regular-webfont.ttf') format('truetype'),
+      url('@{quicksand-url}quicksand-regular-webfont.svg#quicksandregular') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+@font-face {
+  font-family:'Quicksand Light';
+  src:url('@{quicksand-url}quicksand-light-webfont.eot');
+  src:url('@{quicksand-url}quicksand-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('@{quicksand-url}quicksand-light-webfont.woff2') format('woff2'),
+  url('@{quicksand-url}quicksand-light-webfont.woff') format('woff'),
+  url('@{quicksand-url}quicksand-light-webfont.ttf') format('truetype'),
+  url('@{quicksand-url}quicksand-light-webfont.svg#quicksandregular') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+
+@icons-version:'57548452';
+@icons-name:'kuzhagaliyev';
+@icons-url:'@{fonts-url}kuzhagaliyev/';
+
+@font-face {
+  font-family:'@{icons-name}';
+  src:url('@{icons-url}@{icons-name}.eot?@{icons-version}');
+  src:url('@{icons-url}@{icons-name}.eot?@{icons-version}#iefix') format('embedded-opentype'),
+      url('@{icons-url}@{icons-name}.woff?@{icons-version}') format('woff'),
+      url('@{icons-url}@{icons-name}.ttf?@{icons-version}') format('truetype'),
+      url('@{icons-url}@{icons-name}.svg?@{icons-version}#@{icons-name}') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family:"@{icons-name}";
+  text-decoration:inherit;
+  display:inline-block;
+  text-transform:none;
+  font-variant:normal;
+  font-weight:normal;
+  margin-right:.2em;
+  font-style:normal;
+  text-align:center;
+  margin-left:.2em;
+  line-height:1em;
+  speak:none;
+  width:1em;
+}
+.icon-frown:before { content: '\e800'; } /* '' */
+.icon-left:before { content: '\e801'; } /* '' */
+.icon-right:before { content: '\e802'; }

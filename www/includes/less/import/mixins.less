@@ -1,0 +1,40 @@
+@import "variables";
+
+// Box Shadows
+.box-shadow(...) {
+  -webkit-box-shadow:@arguments;
+  -moz-box-shadow:@arguments;
+  box-shadow:@arguments;
+}
+
+// Transitions
+.transition(quick; @target: all) {
+  .transition(@target; 200ms; ease; 0s);
+}
+.transition(slow; @target: all) {
+  .transition(@target; 500ms; ease; 0s);
+}
+.transition(@target; @duration; @easing; @delay) {
+  -webkit-transition: @target @duration @easing @delay;
+  -moz-transition: @target @duration @easing @delay;
+  -o-transition: @target @duration @easing @delay;
+  transition: @target @duration @easing @delay;
+}
+
+// Transform
+.transform(...) {
+  -webkit-transform:@arguments;
+  -ms-transform:@arguments;
+  transform:@arguments;
+}
+.transform-origin(...) {
+  -webkit-transform-origin:@arguments;
+  -ms-transform-origin:@arguments;
+  transform-origin:@arguments;
+}
+
+// Animation
+.animation(...) {
+  -webkit-animation:@arguments;
+  animation:@arguments;
+}

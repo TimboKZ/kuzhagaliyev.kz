@@ -295,6 +295,7 @@ body {
 }
 .index-category {
   font-family:'Quicksand Regular';
+  .transform(translate3d(0,0,0));
   position:absolute;
   .transition(slow);
   z-index:994;
@@ -344,6 +345,7 @@ body {
     opacity:1;
   }
   &-title {
+    .transform(translate3d(0,0,0));
     margin:-20px 0px 0px 0px;
     color:@index-color;
     text-align:center;
@@ -394,6 +396,7 @@ body {
     }
   }
   &-items {
+    .transform(translate3d(0,0,0));
     .transition(slow);
     margin:0px auto;
     padding:10px;
@@ -426,19 +429,19 @@ body {
       }
     }
   }
-  &:nth-child(1) {
+  &[data-id="1"] {
     left:0px;
     top:0px;
   }
-  &:nth-child(2) {
+  &[data-id="2"] {
     left:50%;
     top:0px;
   }
-  &:nth-child(3) {
+  &[data-id="3"] {
     left:0px;
     top:50%;
   }
-  &:nth-child(4) {
+  &[data-id="4"] {
     left:50%;
     top:50%;
   }

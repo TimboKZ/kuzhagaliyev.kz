@@ -32,8 +32,10 @@ if($_GET['section'] != null) {
         function load_page(url) {
             if(loading)
                 return;
-            //noinspection JSUnusedAssignment
             loading = true;
+            var urlParts = url.split('#');
+            url = urlParts[0];
+            var urlHash = '#' + urlParts[1];
             var currentPage = $(".current-page");
             var loadingPage = $(".loading-page");
             $.ajax('<?=$GLOBALS['base_url'];?>pageparser.php', {
@@ -49,11 +51,15 @@ if($_GET['section'] != null) {
             }).success(function(data) {
 
                 if(data.result == 0) {
-                    //var urlHash = document.location.hash;
-                    history.pushState({url:url}, data.title, data.url);
+                    var href = window.location.href;
+                    history.pushState({url:data.url}, data.title, data.url);
+                    if(urlHash != null && href == data.url + urlHash) {
+                        window.location.hash = urlHash;
+                    }
                     document.title = data.title;
 
                     loadingPage.html(data.html);
+                    $('body').trigger('pageLoad');
                     setTimeout(function() {
                         currentPage.removeClass('zoomOutCurrent').addClass('flipOut');
                         loadingPage.removeClass('hidden');
@@ -111,7 +117,7 @@ if($_GET['section'] != null) {
             }, 700);
             setTimeout(function() {
                 loading = false;
-                load_page('<?=$url;?>');
+                load_page('<?=$url;?>' + window.location.hash);
             }, 1200);
         });
         body.on('click', 'a.load-page', function(e) {
@@ -123,47 +129,6 @@ if($_GET['section'] != null) {
             setTimeout(function() {
                 $('#dialog').remove();
             }, 500);
-        });
-        body.on('click', '.index-category.clickable', function(e) {
-            currentCategory = $(this);
-            currentCategory.addClass('expanding');
-            currentCategory.removeClass('clickable');
-            category = true;
-            document.location.hash = currentCategory.data('slug');
-            setTimeout(function() {
-                currentCategory.removeClass('expanding');
-                currentCategory.addClass('expanded');
-            }, 500);
-        });
-        body.on('click', 'a.index-category-items-back', function(e) {
-            e.preventDefault();
-            if(category && currentCategory != null) {
-                currentCategory.removeClass('expanded');
-                currentCategory.addClass('expanding');
-                currentCategory.addClass('clickable');
-                document.location.hash = '';
-                setTimeout(function() {
-                    currentCategory.removeClass('expanding');
-                    currentCategory = null;
-                    category = false;
-                }, 500);
-            }
-        });
-        $(document).keyup(function(e) {
-            if(e.keyCode == 27) {
-                if(category && currentCategory != null) {
-                    setTimeout(function() {
-                        currentCategory.removeClass('expanded');
-                        currentCategory.addClass('expanding');
-                        currentCategory.addClass('clickable');
-                        setTimeout(function() {
-                            currentCategory.removeClass('expanding');
-                            currentCategory = null;
-                            category = false;
-                        }, 500);
-                    }, 500);
-                }
-            }
         });
     </script>
 

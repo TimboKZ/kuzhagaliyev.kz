@@ -43,7 +43,7 @@ if(substr($url, 0, strlen($GLOBALS['base_url'])) === $GLOBALS['base_url']) {
                 $result = 404;
             }
         } elseif(count($parts) == 2) {
-
+            // Section parsing goes here
         } else {
             $result = 400;
         }

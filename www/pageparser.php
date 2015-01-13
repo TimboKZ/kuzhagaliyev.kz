@@ -25,25 +25,34 @@ if(substr($url, 0, strlen($GLOBALS['base_url'])) === $GLOBALS['base_url']) {
         $parts = explode('/', $url);
         if(count($parts) == 1) {
             $page = DB::queryFirstRow('SELECT * FROM items WHERE slug = %s', $parts[0]);
+            $GLOBALS['page'] = $page;
             if(count($page) != 0) {
                 $url = $GLOBALS['base_url'].$page['slug'].'/';
                 $title = $page['name'].' | '.$title;
-                if($page['category'] == 3) {
-                    $GLOBALS['slug'] = $page['slug'];
-                    $html = loadPage($GLOBALS['pages_base'].'reddit-themes.php');
-                } else {
-                    $path = $GLOBALS['pages_base'].$page['slug'].'/index.php';
+                $category = DB::queryOneRow('SELECT * FROM categories WHERE id = %i', $page['category']);;
+                $GLOBALS['category'] = $category;
+                $paths = array(
+                    $GLOBALS['pages_base'].$category['slug'].'/'.$page['slug'].'/index.php',
+                    $GLOBALS['pages_base'].$category['slug'].'/'.$page['slug'].'.php',
+                    $GLOBALS['pages_base'].$category['slug'].'/index.php',
+                    $GLOBALS['pages_base'].$category['slug'].'.php'
+                );
+                $notfound = true;
+                foreach($paths as $path) {
                     if(file_exists($path)) {
                         $html = loadPage($path);
-                    } else {
-                        $result = 404;
+                        $notfound = false;
                     }
+                }
+                if($notfound) {
+                    $result = 404;
                 }
             } else {
                 $result = 404;
             }
         } elseif(count($parts) == 2) {
             // Section parsing goes here
+            $result = 400;
         } else {
             $result = 400;
         }

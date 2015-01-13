@@ -9,6 +9,12 @@ body {
   min-width:960px;
   margin:0px;
 }
+.quicksand-regular {
+  font-family: 'Quicksand Regular';
+}
+.quicksand-light {
+  font-family: 'Quicksand Light';
+}
 
 // Dialog
 #dialog {
@@ -263,35 +269,29 @@ body {
   left:0px;
   top:0px;
 }
-#page1 {
-  background-color:#f39c12;
-}
-#page2 {
-  background-color:#9b59b6;
-}
 
 // Index
 #index {
-  &:before, &:after {
-    background-color:@index-border-color;
-    position:absolute;
-    z-index:995;
-    content:'';
-  }
-  &:before {
-    margin:-0.5px 0px 0px 0px;
-    height:1px;
-    width:100%;
-    left:0px;
-    top:50%;
-  }
-  &:after {
-    margin:0px 0px 0px -0.5px;
-    height:100%;
-    width:1px;
-    left:50%;
-    top:0px;
-  }
+//  &:before, &:after {
+//    background-color:@index-border-color;
+//    position:absolute;
+//    z-index:995;
+//    content:'';
+//  }
+//  &:before {
+//    margin:-0.5px 0px 0px 0px;
+//    height:1px;
+//    width:100%;
+//    left:0px;
+//    top:50%;
+//  }
+//  &:after {
+//    margin:0px 0px 0px -0.5px;
+//    height:100%;
+//    width:1px;
+//    left:50%;
+//    top:0px;
+//  }
 }
 .index-category {
   font-family:'Quicksand Regular';
@@ -300,7 +300,7 @@ body {
   .transition(slow);
   z-index:994;
   height:50%;
-  width:50%;
+  width:33.33%;
   &.expanded {
     background-color:@index-background-color !important;
     z-index:996 !important;
@@ -372,7 +372,7 @@ body {
         font-size:18px;
         opacity:0px;
         height:80px;
-        width:280px;
+        width:240px;
         left:100%;
         top:50%;
         &:before {
@@ -410,8 +410,8 @@ body {
       a {
         .box-shadow(inset @index-link-box-shadow 0px 0px 0px 200px);
         background-color:@index-link-background-color;
-        background-size:contain;
         color:@index-link-color;
+        background-size:cover;
         text-decoration:none;
         line-height:180px;
         text-align:center;
@@ -434,15 +434,30 @@ body {
     top:0px;
   }
   &[data-id="2"] {
-    left:50%;
+    left:33.33%;
     top:0px;
   }
   &[data-id="3"] {
+    left:66.66%;
+    top:0px;
+  }
+  &[data-id="4"] {
     left:0px;
     top:50%;
   }
-  &[data-id="4"] {
-    left:50%;
+  &[data-id="5"] {
+    left:33.33%;
     top:50%;
   }
+  &[data-id="6"] {
+    left:66.66%;
+    top:50%;
+  }
+}
+
+// Content
+.content-default {
+  margin:0px auto;
+  padding:20px;
+  width:920px;
 }

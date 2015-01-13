@@ -1,0 +1,105 @@
+@import "../import/variables";
+@import "../import/mixins";
+
+@category-name: Dota2-Mods;
+
+@Lanaya-Custom-Icons: Lanaya-Custom-Icons;
+#@{Lanaya-Custom-Icons} {
+  background-image:url('@{base-url}images/@{category-name}/@{Lanaya-Custom-Icons}/background.png');
+  .@{category-name}-icons-preview {
+    background-image:url('@{base-url}images/@{category-name}/@{Lanaya-Custom-Icons}/icons-preview.png');
+    height:314px;
+    width:745px;
+  }
+}
+
+@PotM-Custom-Icons: PotM-Custom-Icons;
+#@{PotM-Custom-Icons} {
+  background-image:url('@{base-url}images/@{category-name}/@{PotM-Custom-Icons}/background.png');
+  .@{category-name}-icons-preview {
+    background-image:url('@{base-url}images/@{category-name}/@{PotM-Custom-Icons}/icons-preview.png');
+  }
+}
+
+.@{category-name} {
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  background-color:#222;
+  background-size:cover;
+  &-title {
+    font-family:'Quicksand Regular';
+    text-align:center;
+    font-size:36px;
+    padding:20px;
+    color:#fff;
+  }
+  &-icons-preview {
+    background-image:url('@{base-url}images/@{category-name}/icons-preview.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+    margin:20px auto;
+    height:168px;
+    width:600px;
+  }
+  &-buttons {
+    text-align:center;
+    padding:10px;
+    color:#fff;
+    & a {
+      background-color:rgba(0, 0, 0, 0.4);
+      font-family:'Quicksand Regular';
+      text-decoration:none;
+      display:inline-block;
+      font-size:24px;
+      padding:20px;
+      margin:10px;
+      color:#fff;
+      span {
+        font-family:'Quicksand Light';
+      }
+    }
+  }
+  &-info {
+    font-family:'Quicksand Regular';
+    padding:20px;
+    h1 {
+      margin: 10px 0px 0px 0px;
+      padding: 0px 2% 0px 0px;
+      display: inline-block;
+      vertical-align: top;
+      font-weight: normal;
+      text-align: right;
+      color: #fff;
+      width: 24%;
+    }
+    div {
+      background-color: rgba(0, 0, 0, 0.4);
+      margin: 0px 0px 20px 0px;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0px;
+      color: #fff;
+      width: 74%;
+    }
+    p {
+      line-height: 20px;
+      padding: 20px;
+      margin: 0px;
+    }
+    ol {
+      padding: 10px;
+      margin: 0px;
+    }
+    li {
+      list-style-position: inside;
+      line-height: 20px;
+      padding: 10px;
+      margin: 0px;
+      code {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 2px 4px;
+      }
+    }
+  }
+}
+

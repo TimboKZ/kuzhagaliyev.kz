@@ -5,11 +5,13 @@ $debug = false;
 
 if($_GET['url'] == null && !$debug) {
     header('Location: '.$GLOBALS['base_url']);
+    die();
 }
 
 $url = $debug ? $GLOBALS['base_url'] : $_GET['url'];
 $result = 0;
 $title = 'kuzhagaliyev.kz';
+$stylesheet = null;
 $html = null;
 
 function loadPage($path) {
@@ -42,6 +44,19 @@ if(substr($url, 0, strlen($GLOBALS['base_url'])) === $GLOBALS['base_url']) {
                     if(file_exists($path)) {
                         $html = loadPage($path);
                         $notfound = false;
+                        $stylePath = 'includes/css/'.$GLOBALS['pages_base'];
+                        $stylePaths = array(
+                            $stylePath.$category['slug'].'/'.$page['slug'].'.css',
+                            $stylePath.$category['slug'].'/stylesheet.css',
+                            $stylePath.$category['slug'].'.css'
+                        );
+                        foreach($stylePaths as $_path) {
+                            if(file_exists($_path)) {
+                                $stylesheet = $GLOBALS['base_url'].$_path;
+                                break;
+                            }
+                        }
+                        break;
                     }
                 }
                 if($notfound) {
@@ -70,6 +85,7 @@ $json = array(
     'result' => $result,
     'url' => $url,
     'title' => $title,
+    'stylesheet' => $stylesheet,
     'html' => $html
 );
 

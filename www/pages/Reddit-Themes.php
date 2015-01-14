@@ -1,5 +1,10 @@
-<div class="content-default">
+<?php
 
-<?=$GLOBALS['page']['slug'];?> Page, <a href="<?=$GLOBALS['base_url']?>#<?=$GLOBALS['category']['slug'];?>" class="load-page">Back to <?=$GLOBALS['category']['name'];?></a>
+$text = '<img src="'.$GLOBALS['base_url'].'images/'.$GLOBALS['category']['slug'].'/'.$GLOBALS['page']['slug'].'-preview.png">'.PHP_EOL;
+$text .= '<p>'.$GLOBALS['page']['name'].' reddit theme, <a href="http://reddit.com/r/'.$GLOBALS['page']['slug'].'" target="_blank">http://reddit.com/r/'.$GLOBALS['page']['slug'].'</a></p>';
 
-</div>
+$GLOBALS['article'] = array(
+    'text' => $text,
+);
+
+include 'templates/article.php';

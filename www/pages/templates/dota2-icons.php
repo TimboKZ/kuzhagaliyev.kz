@@ -10,7 +10,7 @@
 
             <a href="<?=$GLOBALS['base_url']?>#<?=$GLOBALS['category']['slug'];?>" class="load-page"><span class="icon-left"></span> Back to <?=$GLOBALS['category']['name'];?></a><!--
 
-         --><a href="<?=$custom_icons_download;?>" target="_blank"><span class="icon-download"></span> Download <?=$GLOBALS['dota2-icons']['version'];?></a>
+         --><?php if($GLOBALS['dota2-icons']['download'] != null) { ?><a href="<?=$GLOBALS['dota2-icons']['download'];?>" target="_blank"><span class="icon-download"></span> Download <?=$GLOBALS['dota2-icons']['version'];?></a><? } ?>
 
         </div>
 

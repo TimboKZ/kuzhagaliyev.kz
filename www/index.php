@@ -37,12 +37,15 @@ if($_GET['section'] != null) {
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
+    Source code: https://github.com/TimboKZ/kuzhagaliyev.kz
+
     -->
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" type="text/css" href="<?=$GLOBALS['base_url'];?>includes/css/stylesheet.css" />
     <link rel="stylesheet" type="text/css" id="additional-stylesheet" href="" />
+    <link rel="icon" href="<?=$GLOBALS['base_url'];?>images/favicon.png">
     <script src="<?=$GLOBALS['base_url'];?>includes/js/jquery-2.1.3.min.js"></script>
     <script>
         function show_dialog(_class, title, comment) {
@@ -94,12 +97,14 @@ if($_GET['section'] != null) {
                                 $('#additional-stylesheet').attr('href', data.stylesheet);
                             else
                                 $('#additional-stylesheet').href = '';
-                            loadingPage.removeClass('zoomOutLoading').addClass('flipIn');
-                            currentPage.removeClass('flipOut').removeClass('current-page').addClass('loading-page').addClass('hidden');
                             setTimeout(function() {
-                                loadingPage.removeClass('flipIn').removeClass('loading-page').addClass('current-page');
+                                loadingPage.removeClass('zoomOutLoading').addClass('flipIn');
+                                currentPage.removeClass('flipOut').removeClass('current-page').addClass('loading-page').addClass('hidden');
+                                setTimeout(function() {
+                                    loadingPage.removeClass('flipIn').removeClass('loading-page').addClass('current-page');
+                                }, 500);
                             }, 500);
-                        }, 500);
+                        }, 20);
                     }, 500);
 
                 } else {

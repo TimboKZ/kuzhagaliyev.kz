@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Europe/London');
+
 $GLOBALS['base_url'] = 'http://kuzhagaliyev.kz/';
 $GLOBALS['pages_base'] = 'pages/';
 

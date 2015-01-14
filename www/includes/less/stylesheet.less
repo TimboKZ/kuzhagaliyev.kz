@@ -9,6 +9,9 @@ body {
   min-width:960px;
   margin:0px;
 }
+a {
+  text-decoration:none;
+}
 .quicksand-regular {
   font-family: 'Quicksand Regular';
 }
@@ -234,14 +237,14 @@ body {
 }
 
 #page-container {
-  transform-style:preserve-3d;
-  perspective:1200px;
+  .transform-style(preserve-3d);
+  .perspective(1200px);
   position:relative;
   height:100%;
   width:100%;
 }
 .page {
-  backface-visibility:hidden;
+  .backface-visibility(hidden);
   .transform-origin(50% 50%);
   position:absolute;
   .transition(slow);
@@ -405,26 +408,32 @@ body {
     opacity:0;
     &-box {
       display:inline-block;
+      vertical-align:top;
       height:200px;
-      width:25%;
+      width:235px;
       a {
         .box-shadow(inset @index-link-box-shadow 0px 0px 0px 200px);
         background-color:@index-link-background-color;
         color:@index-link-color;
         background-size:cover;
         text-decoration:none;
-        line-height:180px;
         text-align:center;
         .transition(slow);
         display:block;
-        height:180px;
+        padding:10px;
+        height:160px;
         margin:10px;
         &:hover {
           .box-shadow(inset transparent 0px 0px 0px 200px);
         }
         & > span {
           background-color:@index-link-background-color-secondary;
+          .transform(translateY(-50%));
+          display:inline-block;
+          position:relative;
+          line-height:20px;
           padding:5px 10px;
+          top:50%;
         }
       }
     }
@@ -460,4 +469,83 @@ body {
   margin:0px auto;
   padding:20px;
   width:920px;
+  &-article {
+    &-bar {
+      font-family:'Quicksand Regular';
+      margin:0px 0px 20px 0px;
+      font-size:24px;
+      &-back {
+        margin:0px 20px 0px 0px;
+        background-color:#ccc;
+        display:inline-block;
+        .transition(slow);
+        line-height:60px;
+        padding:0px 20px;
+        height:60px;
+        color:#fff;
+        float:left;
+        &:hover {
+          padding:0px 25px 0px 15px;
+          background-color:#bbb;
+        }
+      }
+      &-title {
+        padding:16px;
+      }
+    }
+    &-text {
+      font-family:'Trebuchet MS';
+      background-color:#f8f8f8;
+      padding:10px;
+      p {
+        text-indent:15px;
+        line-height:22px;
+        font-size:16px;
+        padding:10px;
+        margin:0px;
+        ins {
+          text-decoration:none;
+          color:#999;
+        }
+        a {
+          .transform-style(preserve-3d);
+          display:inline-block;
+          .perspective(600px);
+          position:relative;
+          .transition(slow);
+          text-indent:0px;
+          padding:2px 4px;
+          color:inherit;
+          z-index:1;
+          &:hover {
+            &:after {
+              .transform(rotateX(0deg));
+            }
+          }
+          &:before {
+            background-color:#ccc;
+            position:absolute;
+            content:'';
+            height:2px;
+            width:100%;
+            left:0px;
+            top:100%;
+          }
+          &:after {
+            .transform-origin(50%, 100%);
+            .transform(rotateX(95deg));
+            background-color:#ddd;
+            position:absolute;
+            .transition(slow);
+            height:100%;
+            content:'';
+            z-index:-1;
+            width:100%;
+            left:0px;
+            top:0px;
+          }
+        }
+      }
+    }
+  }
 }

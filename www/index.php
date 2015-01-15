@@ -43,7 +43,7 @@ if($_GET['section'] != null) {
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="stylesheet" type="text/css" href="<?=$GLOBALS['base_url'];?>includes/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="<?=$GLOBALS['base_url'];?>includes/css/stylesheet.css?<?=$GLOBALS['revision'];?>" />
     <link rel="stylesheet" type="text/css" id="additional-stylesheet" href="" />
     <link rel="icon" href="<?=$GLOBALS['base_url'];?>images/favicon.png">
     <script src="<?=$GLOBALS['base_url'];?>includes/js/jquery-2.1.3.min.js"></script>
@@ -94,7 +94,7 @@ if($_GET['section'] != null) {
                         loadingPage.removeClass('hidden');
                         setTimeout(function() {
                             if(data.stylesheet != null)
-                                $('#additional-stylesheet').attr('href', data.stylesheet);
+                                $('#additional-stylesheet').attr('href', data.stylesheet + '?<?=$GLOBALS['revision'];?>');
                             else
                                 $('#additional-stylesheet').href = '';
                             setTimeout(function() {

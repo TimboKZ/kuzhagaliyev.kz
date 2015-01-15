@@ -1,17 +1,3 @@
-#Lanaya-Custom-Icons {
-  background-image: url('http://kuzhagaliyev.kz/images/Dota2-Mods/Lanaya-Custom-Icons/background.png');
-}
-#Lanaya-Custom-Icons .Dota2-Mods-icons-preview {
-  background-image: url('http://kuzhagaliyev.kz/images/Dota2-Mods/Lanaya-Custom-Icons/icons-preview.png');
-  height: 314px;
-  width: 745px;
-}
-#PotM-Custom-Icons {
-  background-image: url('http://kuzhagaliyev.kz/images/Dota2-Mods/PotM-Custom-Icons/background.png');
-}
-#PotM-Custom-Icons .Dota2-Mods-icons-preview {
-  background-image: url('http://kuzhagaliyev.kz/images/Dota2-Mods/PotM-Custom-Icons/icons-preview.png');
-}
 .Dota2-Mods {
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -25,10 +11,85 @@
   padding: 20px;
   color: #fff;
 }
+.Dota2-Mods-version-selector {
+  display: inline-block;
+  -webkit-perspective: 500px;
+  -ms-perspective: 500px;
+  perspective: 500px;
+  position: relative;
+  line-height: 50px;
+  text-align: right;
+  height: 50px;
+}
+.Dota2-Mods-version-selector span {
+  font-size: 0.8em;
+}
+.Dota2-Mods-version-selector.version-dropdown .Dota2-Mods-version-selector-title {
+  cursor: pointer;
+}
+.Dota2-Mods-version-selector.version-dropdown .Dota2-Mods-version-selector-title:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.Dota2-Mods-version-selector-title {
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: background-color 500ms ease 0s;
+  -moz-transition: background-color 500ms ease 0s;
+  -o-transition: background-color 500ms ease 0s;
+  transition: background-color 500ms ease 0s;
+  line-height: 50px;
+  padding: 0px 10px;
+  height: 50px;
+}
+.Dota2-Mods-version-selector-options {
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+  -webkit-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -webkit-transition: all 500ms ease 0s;
+  -moz-transition: all 500ms ease 0s;
+  -o-transition: all 500ms ease 0s;
+  transition: all 500ms ease 0s;
+  position: absolute;
+  display: block;
+  z-index: -1;
+  opacity: 0;
+  right: 0px;
+  top: 100%;
+}
+.Dota2-Mods-version-selector-options.expanded {
+  -webkit-transform: rotateX(0deg) !important;
+  -ms-transform: rotateX(0deg) !important;
+  transform: rotateX(0deg) !important;
+  opacity: 1 !important;
+}
+.Dota2-Mods-version-selector-option {
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: background-color 500ms ease 0s;
+  -moz-transition: background-color 500ms ease 0s;
+  -o-transition: background-color 500ms ease 0s;
+  transition: background-color 500ms ease 0s;
+  padding: 0px 10px 0px 10px;
+  white-space: nowrap;
+  line-height: 50px;
+  cursor: pointer;
+  height: 50px;
+}
+.Dota2-Mods-version-selector-option:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .Dota2-Mods-icons-preview {
   background-image: url('http://kuzhagaliyev.kz/images/Dota2-Mods/icons-preview.png');
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-transition: all 500ms ease 0s;
+  -moz-transition: all 500ms ease 0s;
+  -o-transition: all 500ms ease 0s;
+  transition: all 500ms ease 0s;
   margin: 20px auto;
   height: 168px;
   width: 600px;

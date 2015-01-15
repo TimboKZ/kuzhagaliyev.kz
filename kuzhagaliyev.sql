@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2015 at 08:07 PM
+-- Generation Time: Jan 15, 2015 at 06:47 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.3.13
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `name` varchar(32) NOT NULL,
   `slug` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `items`
@@ -73,7 +73,8 @@ INSERT INTO `items` (`id`, `category`, `name`, `slug`) VALUES
 (6, 6, 'PotM Custom Icons', 'PotM-Custom-Icons'),
 (7, 6, 'Lanaya Custom Icons', 'Lanaya-Custom-Icons'),
 (8, 1, 'About kuzhagaliyev.kz', 'About'),
-(9, 1, 'kuzhagaliyev.kz Development', 'Development');
+(9, 1, 'kuzhagaliyev.kz Development', 'Development'),
+(10, 6, 'Slark Custom Icons', 'Slark-Custom-Icons');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

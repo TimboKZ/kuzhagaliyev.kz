@@ -3,23 +3,14 @@
 
 @category-name: Dota2-Mods;
 
-@Lanaya-Custom-Icons: Lanaya-Custom-Icons;
-#@{Lanaya-Custom-Icons} {
-  background-image:url('@{base-url}images/@{category-name}/@{Lanaya-Custom-Icons}/background.png');
-  .@{category-name}-icons-preview {
-    background-image:url('@{base-url}images/@{category-name}/@{Lanaya-Custom-Icons}/icons-preview.png');
-    height:314px;
-    width:745px;
-  }
-}
-
-@PotM-Custom-Icons: PotM-Custom-Icons;
-#@{PotM-Custom-Icons} {
-  background-image:url('@{base-url}images/@{category-name}/@{PotM-Custom-Icons}/background.png');
-  .@{category-name}-icons-preview {
-    background-image:url('@{base-url}images/@{category-name}/@{PotM-Custom-Icons}/icons-preview.png');
-  }
-}
+//@Lanaya-Custom-Icons: Lanaya-Custom-Icons;
+//#@{Lanaya-Custom-Icons} {
+//  .@{category-name}-icons-preview {
+//    background-image:url('@{base-url}images/@{category-name}/@{Lanaya-Custom-Icons}/icons-preview.png');
+//    height:314px;
+//    width:745px;
+//  }
+//}
 
 .@{category-name} {
   background-attachment:fixed;
@@ -33,10 +24,63 @@
     padding:20px;
     color:#fff;
   }
+  &-version-selector {
+    display:inline-block;
+    .perspective(500px);
+    position:relative;
+    line-height:50px;
+    text-align:right;
+    height:50px;
+    span {
+      font-size:0.8em;
+    }
+    &.version-dropdown &-title {
+      cursor:pointer;
+      &:hover {
+        background-color:rgba(0, 0, 0, 0.5);
+      }
+    }
+    &-title {
+      background-color:rgba(0, 0, 0, 0.4);
+      .transition(slow, background-color);
+      line-height:50px;
+      padding:0px 10px;
+      height:50px;
+    }
+    &-options {
+      .transform-style(preserve-3d);
+      .transform(rotateX(-90deg));
+      .transform-origin(50% 0%);
+      .transition(slow);
+      position:absolute;
+      display:block;
+      z-index:-1;
+      opacity:0;
+      right:0px;
+      top:100%;
+      &.expanded {
+        .transform(rotateX(0deg)) !important;
+        opacity:1 !important;
+      }
+    }
+    &-option {
+      background-color:rgba(0, 0, 0, 0.4);
+      .transition(slow, background-color);
+      padding:0px 10px 0px 10px;
+      white-space:nowrap;
+      line-height:50px;
+      cursor:pointer;
+      height:50px;
+      &:hover {
+        background-color:rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
   &-icons-preview {
     background-image:url('@{base-url}images/@{category-name}/icons-preview.png');
     background-repeat:no-repeat;
     background-size:cover;
+    .transition(slow);
     margin:20px auto;
     height:168px;
     width:600px;

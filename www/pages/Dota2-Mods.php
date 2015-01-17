@@ -5,7 +5,16 @@ $version = 'v0.1';
 $description = 'A set of icons.';
 $download = null;
 
-if($GLOBALS['page']['slug'] == 'Lanaya-Custom-Icons') {
+if($GLOBALS['page']['slug'] == 'Kunkka-Custom-Icons') {
+    $name = $GLOBALS['page']['name'];
+    $versions = array(
+        array(
+            'version' => '0.1',
+            'link' => 'http://www.mediafire.com/download/2tidv112aauot3y/Kunkka-Custom-Icons-0.1.zip',
+        ),
+    );
+    $description = 'A set of customised icons for Kunkka\'s spells. Made with soul, enjoy :D'.PHP_EOL.'Kunkka art by Mike Azevedo.';
+} elseif($GLOBALS['page']['slug'] == 'Lanaya-Custom-Icons') {
     $name = $GLOBALS['page']['name'];
     $versions = array(
         array(
@@ -23,6 +32,15 @@ if($GLOBALS['page']['slug'] == 'Lanaya-Custom-Icons') {
         ),
     );
     $description = 'A set of customised icons for Mirana\'s spells.';
+} elseif($GLOBALS['page']['slug'] == 'Pugna-Custom-Icons') {
+    $name = 'Pugna Custom Icons';
+    $versions = array(
+        array(
+            'version' => '0.1',
+            'link' => 'http://www.mediafire.com/download/rcf6vuzx0d7004v/Pugna_Custom_Icons_0.1.zip',
+        ),
+    );
+    $description = 'A set of customised icons for Pugna\'s spells.';
 } elseif($GLOBALS['page']['slug'] == 'Slark-Custom-Icons') {
     $name = 'Slark Custom Icons';
     $versions = array(

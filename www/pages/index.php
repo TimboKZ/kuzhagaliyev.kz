@@ -76,7 +76,7 @@
                     <a href="#" class="index-category-items-back"><span><span class="icon-left"></span> Back</span></a>
                 </div><!--<?
                 $categories = DB::queryOneColumn('slug', 'SELECT * FROM categories ORDER BY id ASC');
-                $items = DB::query('SELECT * FROM items WHERE category = %i ORDER BY id ASC', $result['id']);
+                $items = DB::query('SELECT * FROM items WHERE category = %i ORDER BY name ASC', $result['id']);
                 foreach($items as $item) {
                     $thumbnail = '';
                     if(file_exists('images/'.$categories[$item['category'] - 1].'/'.$item['slug'].'.png')){

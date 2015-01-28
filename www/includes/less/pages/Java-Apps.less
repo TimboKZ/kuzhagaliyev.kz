@@ -1,0 +1,67 @@
+@import "../import/variables";
+@import "../import/mixins";
+
+@category-name: Java-Apps;
+
+.@{category-name} {
+  background-image:url('@{base-url}images/@{category-name}/bg-horizontal.png');
+  font-family:'Lekton Regular';
+  background-color:#111;
+  font-size:24px;
+  color:#fff;
+}
+.box-24() {
+  line-height:30px;
+  font-size:36px;
+  height:24px;
+}
+.box-48() {
+  line-height:59px;
+  font-size:73px;
+  height:48px;
+}
+.content {
+  background-image:url('@{base-url}images/@{category-name}/bg-vertical.png');
+  margin:0px auto;
+  padding:24px;
+  width:889px;
+  &-header {
+    a {
+      text-transform:uppercase;
+      display:inline-block;
+      color:#09f;
+      .box-24();
+    }
+    .title {
+      text-transform:uppercase;
+      margin:24px 0px 0px 0px;
+      .box-48();
+    }
+  }
+  &-preview {
+    margin:23px 0px 0px 0px;
+  }
+  &-info {
+    margin:24px 0px 0px 0px;
+    .github {
+      text-transform:uppercase;
+      margin:-1px 24px 0px 0px;
+      border:dotted 1px #ccc;
+      display:inline-block;
+      text-align:center;
+      line-height:80px;
+      font-size:36px;
+      height:71px;
+      width:168px;
+      float:left;
+      color:#fff;
+    }
+    .description {
+      line-height:24px;
+      font-size:20px;
+      a {
+        color:#09f;
+      }
+    }
+  }
+}

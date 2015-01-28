@@ -1,7 +1,7 @@
 <?php
 
 $name = $GLOBALS['page']['name'];
-$version = 'v0.1';
+$versions = null;
 $description = 'A set of icons.';
 $download = null;
 

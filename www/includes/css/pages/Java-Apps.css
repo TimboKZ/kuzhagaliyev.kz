@@ -1,0 +1,54 @@
+.Java-Apps {
+  background-image: url('http://kuzhagaliyev.kz/images/Java-Apps/bg-horizontal.png');
+  font-family: 'Lekton Regular';
+  background-color: #111;
+  font-size: 24px;
+  color: #fff;
+}
+.content {
+  background-image: url('http://kuzhagaliyev.kz/images/Java-Apps/bg-vertical.png');
+  margin: 0px auto;
+  padding: 24px;
+  width: 889px;
+}
+.content-header a {
+  text-transform: uppercase;
+  display: inline-block;
+  color: #09f;
+  line-height: 30px;
+  font-size: 36px;
+  height: 24px;
+}
+.content-header .title {
+  text-transform: uppercase;
+  margin: 24px 0px 0px 0px;
+  line-height: 59px;
+  font-size: 73px;
+  height: 48px;
+}
+.content-preview {
+  margin: 23px 0px 0px 0px;
+}
+.content-info {
+  margin: 24px 0px 0px 0px;
+}
+.content-info .github {
+  text-transform: uppercase;
+  margin: -1px 24px 0px 0px;
+  border: dotted 1px #ccc;
+  display: inline-block;
+  text-align: center;
+  line-height: 80px;
+  font-size: 36px;
+  height: 71px;
+  width: 168px;
+  float: left;
+  color: #fff;
+}
+.content-info .description {
+  line-height: 24px;
+  font-size: 20px;
+}
+.content-info .description a {
+  color: #09f;
+}

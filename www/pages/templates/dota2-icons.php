@@ -75,7 +75,7 @@ else $background = '';
 
         <div class="<?=$GLOBALS['category']['slug']?>-buttons">
 
-            <a href="<?=$GLOBALS['base_url']?>#<?=$GLOBALS['category']['slug'];?>" class="load-page"><span class="icon-left"></span> Back to <?=$GLOBALS['category']['name'];?></a><!--
+            <a href="<?=$GLOBALS['base_url']?>#<?=$GLOBALS['section']['slug'];?>" class="load-page"><span class="icon-left"></span> Back to <?=$GLOBALS['section']['name'];?></a><!--
 
          --><?php if($version_count > 0) { ?><a id="download-button" href="<?=$current_version['link'];?>" target="_blank"><span class="icon-download"></span> Download v<?=$current_version['version'];?></a><? } ?>
 

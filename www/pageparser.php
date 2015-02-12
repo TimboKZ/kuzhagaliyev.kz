@@ -31,6 +31,8 @@ if(substr($url, 0, strlen($GLOBALS['base_url'])) === $GLOBALS['base_url']) {
             if(count($page) != 0) {
                 $url = $GLOBALS['base_url'].$page['slug'].'/';
                 $title = $page['name'].' | '.$title;
+                $section = DB::queryOneRow('SELECT * FROM sections WHERE id = %i', $page['section']);;
+                $GLOBALS['section'] = $section;
                 $category = DB::queryOneRow('SELECT * FROM categories WHERE id = %i', $page['category']);;
                 $GLOBALS['category'] = $category;
                 $paths = array(

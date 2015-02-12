@@ -1,0 +1,44 @@
+@import "../import/mixins";
+
+@fonts-url:'../../fonts/';
+
+@quicksand-url:'@{fonts-url}quicksand/';
+
+@font-face {
+  font-family:'Quicksand Regular';
+  src:url('@{quicksand-url}quicksand-regular-webfont.eot');
+  src:url('@{quicksand-url}quicksand-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('@{quicksand-url}quicksand-regular-webfont.woff2') format('woff2'),
+  url('@{quicksand-url}quicksand-regular-webfont.woff') format('woff'),
+  url('@{quicksand-url}quicksand-regular-webfont.ttf') format('truetype'),
+  url('@{quicksand-url}quicksand-regular-webfont.svg#quicksandregular') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+@font-face {
+  font-family:'Quicksand Light';
+  src:url('@{quicksand-url}quicksand-light-webfont.eot');
+  src:url('@{quicksand-url}quicksand-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('@{quicksand-url}quicksand-light-webfont.woff2') format('woff2'),
+  url('@{quicksand-url}quicksand-light-webfont.woff') format('woff'),
+  url('@{quicksand-url}quicksand-light-webfont.ttf') format('truetype'),
+  url('@{quicksand-url}quicksand-light-webfont.svg#quicksandregular') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+
+#back {
+  background-color:rgba(0, 0, 0, 0.4);
+  font-family:'Quicksand Regular';
+  text-decoration:none;
+  position:absolute;
+  .transition(slow);
+  padding:5px 10px;
+  z-index:999;
+  color:#fff;
+  left:0px;
+  top:0px;
+  &:hover {
+    background-color:rgba(0, 0, 0, 0.8);
+  }
+}

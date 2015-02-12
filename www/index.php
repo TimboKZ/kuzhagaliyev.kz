@@ -43,10 +43,10 @@ if($_GET['section'] != null) {
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="stylesheet" type="text/css" href="<?=$GLOBALS['base_url'];?>includes/css/stylesheet.css?<?=$GLOBALS['revision'];?>" />
-    <link rel="stylesheet" type="text/css" id="additional-stylesheet" href="" />
+    <link rel="stylesheet" type="text/css" id="main-stylesheet" href="<?=$GLOBALS['base_url'];?>includes/css/stylesheet.css?<?=$GLOBALS['revision'];?>" />
     <link rel="icon" href="<?=$GLOBALS['base_url'];?>images/favicon.png">
     <script src="<?=$GLOBALS['base_url'];?>includes/js/jquery-2.1.3.min.js"></script>
+    <script src="<?=$GLOBALS['base_url'];?>includes/js/freewall.js"></script>
     <script>
         function show_dialog(_class, title, comment) {
             $('body').prepend('<div id="dialog" class="' + _class + '"><div id="dialog-box"><div id="dialog-title"> ' + title + ' </div><div id="dialog-comment">' + comment + '</div></div></div>');
@@ -54,6 +54,11 @@ if($_GET['section'] != null) {
                 $('#dialog').addClass('loaded');
             }, 100);
         }
+        window.onpopstate = function(event) {
+            //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+            if(event.state != null)
+                load_page(event.state.url);
+        };
 
         var loading = true;
         var loadingUrl = null;
@@ -93,11 +98,11 @@ if($_GET['section'] != null) {
                         currentPage.removeClass('zoomOutCurrent').addClass('flipOut');
                         loadingPage.removeClass('hidden');
                         setTimeout(function() {
-                            if(data.stylesheet != null)
-                                $('#additional-stylesheet').attr('href', data.stylesheet + '?<?=$GLOBALS['revision'];?>');
-                            else
-                                $('#additional-stylesheet').href = '';
                             setTimeout(function() {
+                                if(data.stylesheet != null)
+                                    $('<link rel="stylesheet" type="text/css" id="additional-stylesheet" href="' +  data.stylesheet + '?<?=$GLOBALS['revision'];?>" />').insertAfter('#main-stylesheet');
+                                else
+                                    $('#additional-stylesheet').remove();
                                 loadingPage.removeClass('zoomOutLoading').addClass('flipIn');
                                 currentPage.removeClass('flipOut').removeClass('current-page').addClass('loading-page').addClass('hidden');
                                 setTimeout(function() {

@@ -1,0 +1,62 @@
+// Dialogs
+#dialog {
+  background-color:transparent;
+  position:absolute;
+  .transition(slow);
+  overflow:hidden;
+  display:block;
+  z-index:998;
+  height:100%;
+  width:100%;
+  left:0px;
+  top:0px;
+  &.loaded {
+    background-color:@dialog-background-color !important;
+  }
+  &.loaded &-box {
+    margin:0px 0px -100px -200px !important;
+    bottom:50% !important;
+  }
+  &-box {
+    background-color:@dialog-box-background-color-secondary;
+    .transform(translate3d(0, 0, 0));
+    font-family:'Quicksand Regular';
+    margin:0px 0px 0px -200px;
+    color:@dialog-color;
+    position:absolute;
+    .transition(slow);
+    cursor:pointer;
+    height:200px;
+    bottom:100%;
+    width:400px;
+    left:50%;
+  }
+  &-title {
+    background-color:@dialog-box-background-color;
+    text-align:center;
+    font-size:36px;
+    padding:15px;
+  }
+  &-comment {
+    font-size:20px;
+    padding:20px;
+  }
+  &.error &-box {
+    background-color:@dialog-box-error-background-color !important;
+  }
+  &.error &-title {
+    background-color:@dialog-box-error-background-color-secondary !important;
+    span {
+      color:@dialog-box-error-color-secondary;
+    }
+  }
+  &.warning &-box {
+    background-color:@dialog-box-warning-background-color !important;
+  }
+  &.warning &-title {
+    background-color:@dialog-box-warning-background-color-secondary !important;
+    span {
+      color:@dialog-box-warning-color-secondary;
+    }
+  }
+}

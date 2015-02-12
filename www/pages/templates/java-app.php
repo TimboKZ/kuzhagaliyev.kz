@@ -2,7 +2,7 @@
     <div class="content">
         <div class="content-header">
 
-            <a href="<?=$GLOBALS['base_url']?>#<?=$GLOBALS['category']['slug'];?>" class="load-page">Back to <?=$GLOBALS['category']['name'];?></a><!--
+            <a href="<?=$GLOBALS['base_url']?>#<?=$GLOBALS['section']['slug'];?>" class="load-page">Back to <?=$GLOBALS['section']['name'];?></a><!--
 
          --><div class="title"><?=$GLOBALS['page']['name']?></div>
 

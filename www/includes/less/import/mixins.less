@@ -14,6 +14,18 @@
 .transition(slow; @target: all) {
   .transition(@target; 500ms; ease; 0s);
 }
+.transition(none) {
+  -webkit-transition:none;
+  -moz-transition:none;
+  -o-transition:none;
+  transition:none;
+}
+.transition(@target; @duration; @easing; @delay) {
+  -webkit-transition: @target @duration @easing @delay;
+  -moz-transition: @target @duration @easing @delay;
+  -o-transition: @target @duration @easing @delay;
+  transition: @target @duration @easing @delay;
+}
 .transition(@target; @duration; @easing; @delay) {
   -webkit-transition: @target @duration @easing @delay;
   -moz-transition: @target @duration @easing @delay;

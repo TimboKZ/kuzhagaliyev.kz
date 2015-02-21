@@ -1,11 +1,12 @@
-<div id="loading" class="page-inside">
+<div id="loading-indicator">
 
-    <div id="loading-inside">
+    <div id="loading-indicator-wrapper">
+    <div id="loading-indicator-inside">
 
-        <div id="loading-k">k</div>
-        <div id="loading-z">z</div>
-        kuzhagaliyev.kz
+        <div id="loading-indicator-title">Loading</div>
+        <div id="loading-indicator-progress-bar"></div>
 
+    </div>
     </div>
 
 </div>

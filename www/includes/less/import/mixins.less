@@ -7,6 +7,15 @@
   box-shadow:@arguments;
 }
 
+// Filters
+.filter(...) {
+  -webkit-filter:@arguments;
+  -moz-filter:@arguments;
+  -ms-filter:@arguments;
+  -o-filter:@arguments;
+  filter:@arguments;
+}
+
 // Transitions
 .transition(quick; @target: all) {
   .transition(@target; 200ms; ease; 0s);
@@ -62,5 +71,28 @@
 // Animation
 .animation(...) {
   -webkit-animation:@arguments;
+  -moz-animation:@arguments;
+  -o-animation:@arguments;
   animation:@arguments;
+}
+.animation-duration(...) {
+  -webkit-animation-duration:@arguments;
+  -moz-animation-duration:@arguments;
+  -ms-animation-duration:@arguments;
+  -o-animation-duration:@arguments;
+  animation-duration:@arguments;
+}
+.animation-fill-mode(...) {
+  -webkit-animation-fill-mode:@arguments;
+  -moz-animation-fill-mode:@arguments;
+  -ms-animation-fill-mode:@arguments;
+  -o-animation-fill-mode:@arguments;
+  animation-fill-mode:@arguments;
+}
+.animation-iteration-count(...) {
+  -webkit-animation-iteration-count:@arguments;
+  -moz-animation-iteration-count:@arguments;
+  -ms-animation-iteration-count:@arguments;
+  -o-animation-iteration-count:@arguments;
+  animation-iteration-count:@arguments;
 }

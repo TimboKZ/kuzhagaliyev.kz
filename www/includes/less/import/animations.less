@@ -1,26 +1,42 @@
 @import "variables";
 @import "mixins";
 
-.hidden {
-  display:none !important;
+.animation-fade-in {
+  .animation(fade-in 0.5s linear 2);
 }
-.zoomOutCurrent {
-  .transform(translateZ(-500px), rotateX(0deg)) !important;
+@-webkit-keyframes fade-in {
+  from { opacity:0; }
+  to { opacity:1; }
 }
-.zoomOutLoading {
-  .transform(translateZ(-500px), rotateX(-90deg)) !important;
+@-moz-keyframes fade-in {
+  from { opacity:0; }
+  to { opacity:1; }
 }
-.flipOut {
-  .transform(translateZ(-500px), rotateX(90deg)) !important;
+@-o-keyframes fade-in {
+  from { opacity:0; }
+  to { opacity:1; }
 }
-.flipIn {
-  .transform(translateZ(-500px), rotateX(0deg)) !important;
+@keyframes fade-in {
+  from { opacity:0; }
+  to { opacity:1; }
 }
-@-webkit-keyframes revolution {
-  from { .transform(rotate(0deg)); }
-  to { .transform(rotate(360deg)); }
+
+.animation-rotate-z {
+  .animation(rotate-z 1s linear infinite);
 }
-@keyframes revolution {
-  from { .transform(rotate(0deg));opacity:0; }
-  to { .transform(rotate(360deg));opacity:1; }
+@-webkit-keyframes rotate-z {
+  from { .transform(rotateZ(0deg)); }
+  to { .transform(rotateZ(360deg)); }
+}
+@-moz-keyframes rotate-z {
+  from { .transform(rotateZ(0deg)); }
+  to { .transform(rotateZ(360deg)); }
+}
+@-o-keyframes rotate-z {
+  from { .transform(rotateZ(0deg)); }
+  to { .transform(rotateZ(360deg)); }
+}
+@keyframes rotate-z {
+  from { .transform(rotateZ(0deg)); }
+  to { .transform(rotateZ(360deg)); }
 }

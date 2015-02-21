@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2015 at 08:59 PM
+-- Generation Time: Feb 21, 2015 at 09:26 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.3.13
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `name` text NOT NULL,
   `slug` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `items`
@@ -78,14 +78,15 @@ INSERT INTO `items` (`id`, `section`, `category`, `name`, `slug`) VALUES
 (5, 2, 3, 'Hikari', 'Hikari'),
 (6, 2, 6, 'PotM Custom Icons', 'PotM-Custom-Icons'),
 (7, 2, 6, 'Lanaya Custom Icons', 'Lanaya-Custom-Icons'),
-(8, 1, 9, 'About kuzhagaliyev.kz', 'About'),
-(9, 1, 9, 'kuzhagaliyev.kz Development', 'Development'),
+(8, 1, 9, 'About This Website', 'About'),
+(9, 1, 9, 'Website Development', 'Development'),
 (10, 2, 6, 'Slark Custom Icons', 'Slark-Custom-Icons'),
 (11, 2, 6, 'Kunkka Custom Icons', 'Kunkka-Custom-Icons'),
 (12, 2, 6, 'Pugna Custom Icons', 'Pugna-Custom-Icons'),
 (13, 2, 2, 'Active Visualiser', 'Active-Visualiser'),
 (14, 2, 2, 'Envision', 'Envision'),
-(15, 3, 7, 'Obscure Science Occupation Name Generator', 'OSONG');
+(15, 3, 7, 'Obscure Science Occupation Name Generator', 'OSONG'),
+(16, 3, 8, 'Epic Hover Effects (with sound)', 'Epic-Hover-Effects');
 
 -- --------------------------------------------------------
 

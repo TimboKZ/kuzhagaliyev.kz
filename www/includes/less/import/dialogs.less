@@ -1,62 +1,48 @@
-// Dialogs
+@import "variables";
+@import "mixins";
+@import "templates";
+
+// Dialog
 #dialog {
-  background-color:transparent;
-  position:absolute;
-  .transition(slow);
-  overflow:hidden;
-  display:block;
-  z-index:998;
-  height:100%;
-  width:100%;
-  left:0px;
-  top:0px;
-  &.loaded {
-    background-color:@dialog-background-color !important;
+  background-image:url('@{image-url}background-stripes.png');
+  &:extend(.ui-fit-parent-absolute);
+  display:none;
+  &-wrapper {
+    &:extend(.ui-foreground-container-hidden all);
+    &:extend(.ui-centre-absolute);
+    display:none;
+    z-index:999;
+    width:500px;
   }
-  &.loaded &-box {
-    margin:0px 0px -100px -200px !important;
-    bottom:50% !important;
-  }
-  &-box {
-    background-color:@dialog-box-background-color-secondary;
-    .transform(translate3d(0, 0, 0));
-    font-family:'Quicksand Regular';
-    margin:0px 0px 0px -200px;
-    color:@dialog-color;
-    position:absolute;
-    .transition(slow);
-    cursor:pointer;
-    height:200px;
-    bottom:100%;
-    width:400px;
-    left:50%;
+  &-inside {
+    overflow:hidden;
   }
   &-title {
-    background-color:@dialog-box-background-color;
-    text-align:center;
-    font-size:36px;
-    padding:15px;
+    &:extend(.ui-foreground-title all);
   }
   &-comment {
-    font-size:20px;
-    padding:20px;
+    text-align:center;
   }
-  &.error &-box {
-    background-color:@dialog-box-error-background-color !important;
+  &.error {
+    background-image:url('@{image-url}background-stripes-error.png') !important;
   }
-  &.error &-title {
-    background-color:@dialog-box-error-background-color-secondary !important;
-    span {
-      color:@dialog-box-error-color-secondary;
+  &.error &-wrapper {
+    .box-shadow(inset @error-shadow 0px 0px 200px);
+    background-color:@error-bg;
+    color:@error-text;
+    &:before, &:after {
+      border-color:@error-border;
     }
   }
-  &.warning &-box {
-    background-color:@dialog-box-warning-background-color !important;
+  &.warning {
+    background-image:url('@{image-url}background-stripes-warning.png') !important;
   }
-  &.warning &-title {
-    background-color:@dialog-box-warning-background-color-secondary !important;
-    span {
-      color:@dialog-box-warning-color-secondary;
+  &.warning &-wrapper {
+    .box-shadow(inset @warning-shadow 0px 0px 200px);
+    background-color:@warning-bg;
+    color:@warning-text;
+    &:before, &:after {
+      border-color:@warning-border;
     }
   }
 }

@@ -1,149 +1,50 @@
-#page-container {
-  .transform-style(preserve-3d);
-  .perspective(1200px);
-  position:relative;
-  height:100%;
-  width:100%;
-}
-.page {
-  .backface-visibility(hidden);
-  .transform-origin(50% 50%);
-  position:absolute;
-  .transition(slow);
-  overflow:hidden;
-  display:block;
-  height:100%;
-  width:100%;
-  left:0px;
-  top:0px;
-}
-.current-page {
-  .transform(translateZ(0px), rotateX(0deg));
-}
-.loading-page {
-  .transform(translateZ(-500px), rotateX(-90deg));
-}
-.page-inside {
-  background-color:@page-background-color;
-  overflow-x:hidden;
-  position:absolute;
-  color:@page-color;
-  overflow-y:auto;
-  height:100%;
-  width:100%;
-  left:0px;
-  top:0px;
-}
+@import "variables";
+@import "mixins";
+@import "templates";
 
 // Loading indicator
 #loading-indicator {
-  background-color:transparent;
-  position:absolute;
-  .transition(slow);
-  z-index:997;
-  height:100%;
-  width:100%;
-  left:0px;
-  top:0px;
-  &.loaded {
-    background-color:@loading-indicator-background-color;
-  }
-  &.loaded &-inside {
-    .transform(scale(1));
-    opacity:1;
+  background-image: url('@{image-url}background-stripes.png');
+  &:extend(.ui-fit-parent-absolute);
+  display:none;
+  &-wrapper {
+    &:extend(.ui-foreground-container-hidden all);
+    &:extend(.ui-centre-absolute);
+    display:none;
+    height:200px;
+    z-index:998;
+    width:500px;
   }
   &-inside {
-    margin:-40px 0px 0px -40px;
-    .transform-origin(50% 50%);
-    .transform(scale(2));
-    position:absolute;
-    .transition(slow);
-    height:80px;
-    width:80px;
-    opacity:0;
-    left:50%;
-    top:50%;
+    &:extend(.ui-fit-parent-absolute);
+    overflow:hidden;
   }
-  &-box {
-    border:solid 1px @loading-indicator-foreground-color;
-    .animation(revolution 2s linear infinite);
-    margin:-41px 0px 0px -41px;
-    position:absolute;
-    height:80px;
-    width:80px;
-    left:50%;
-    top:50%;
+  &-title {
+    &:extend(.ui-foreground-title);
+    &:extend(.ui-centre-relative);
+  }
+  &-progress-bar {
+    border:solid 4px @ui-foreground-container-border;
+    border-right-color:transparent;
+    border-left-color:transparent;
+    &:extend(.ui-centre-absolute);
+    &:extend(.animation-rotate-z);
+    margin:-74px 0px 0px -74px;
+    border-radius:140px;
+    height:140px;
+    width:140px;
     &:before {
-      border:solid 1px @loading-indicator-foreground-color;
-      .animation(revolution 1s linear infinite reverse);
-      position:absolute;
-      opacity:0.8;
-      height:56px;
+      border:solid 4px @ui-foreground-container-border;
+      border-right-color:transparent;
+      border-left-color:transparent;
+      &:extend(.ui-centre-absolute);
+      &:extend(.animation-rotate-z);
+      margin:-79px 0px 0px -79px;
+      .animation-duration(4s);
+      border-radius:140px;
+      height:150px;
+      width:150px;
       content:'';
-      width:56px;
-      left:11px;
-      top:11px;
     }
-    &:after {
-      border:solid 1px @loading-indicator-foreground-color;
-      position:absolute;
-      opacity:0.6;
-      height:40px;
-      content:'';
-      width:40px;
-      left:19px;
-      top:19px;
-    }
-  }
-}
-
-// kuzhagaliyev.kz logo
-#loading {
-  background-color:@loading-background-color;
-  &.final &-inside {
-    color:@loading-color;
-  }
-  &.final &-k {
-    right:543px;
-    opacity:0;
-  }
-  &.final &-z {
-    left:543px;
-    opacity:0;
-  }
-  &.intermediate &-k {
-    right:543px;
-  }
-  &.intermediate &-z {
-    left:543px;
-  }
-  &-inside {
-    font-family:'Quicksand Regular';
-    color:@loading-background-color;
-    margin:-50px 0px 0px -300px;
-    text-transform:uppercase;
-    line-height:100px;
-    text-align:center;
-    position:absolute;
-    .transition(slow);
-    font-size:60px;
-    height:100px;
-    width:600px;
-    left:50%;
-    top:50%;
-  }
-  &-k, &-z {
-    color:@loading-color;
-    position:absolute;
-    .transition(slow);
-    height:100px;
-    width:40px;
-    opacity:1;
-  }
-  &-k {
-    right:300px;
-  }
-  &-z {
-    left:300px;
   }
 }

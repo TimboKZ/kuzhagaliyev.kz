@@ -3,6 +3,32 @@
 // Fonts & Icons
 @fonts-url:'../fonts/';
 
+@unisans-url:'@{fonts-url}unisans/';
+
+@font-face {
+  font-family:'Uni Sans Bold';
+  src:url('@{unisans-url}Uni Sans Heavy-webfont.eot');
+  src:url('@{unisans-url}Uni Sans Heavy-webfont.eot?#iefix') format('embedded-opentype'),
+      url('@{unisans-url}Uni Sans Heavy-webfont.woff2') format('woff2'),
+      url('@{unisans-url}Uni Sans Heavy-webfont.woff') format('woff'),
+      url('@{unisans-url}Uni Sans Heavy-webfont.ttf') format('truetype'),
+      url('@{unisans-url}Uni Sans Heavy-webfont.svg#uni_sansheavy_caps') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:'Uni Sans Regular';
+  src:url('@{unisans-url}Uni Sans Thin-webfont.eot');
+  src:url('@{unisans-url}Uni Sans Thin-webfont.eot?#iefix') format('embedded-opentype'),
+      url('@{unisans-url}Uni Sans Thin-webfont.woff2') format('woff2'),
+      url('@{unisans-url}Uni Sans Thin-webfont.woff') format('woff'),
+      url('@{unisans-url}Uni Sans Thin-webfont.ttf') format('truetype'),
+      url('@{unisans-url}Uni Sans Thin-webfont.svg#uni_sansthin_caps') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+
 @quicksand-url:'@{fonts-url}quicksand/';
 
 @font-face {
@@ -20,10 +46,10 @@
   font-family:'Quicksand Light';
   src:url('@{quicksand-url}quicksand-light-webfont.eot');
   src:url('@{quicksand-url}quicksand-light-webfont.eot?#iefix') format('embedded-opentype'),
-  url('@{quicksand-url}quicksand-light-webfont.woff2') format('woff2'),
-  url('@{quicksand-url}quicksand-light-webfont.woff') format('woff'),
-  url('@{quicksand-url}quicksand-light-webfont.ttf') format('truetype'),
-  url('@{quicksand-url}quicksand-light-webfont.svg#quicksandregular') format('svg');
+      url('@{quicksand-url}quicksand-light-webfont.woff2') format('woff2'),
+      url('@{quicksand-url}quicksand-light-webfont.woff') format('woff'),
+      url('@{quicksand-url}quicksand-light-webfont.ttf') format('truetype'),
+      url('@{quicksand-url}quicksand-light-webfont.svg#quicksandregular') format('svg');
   font-weight:normal;
   font-style:normal;
 }
